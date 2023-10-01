@@ -3,7 +3,6 @@
 // Crear un algoritmo que al final nos entregue el IMC del usuaraio :)
 
 #include <iostream>
-#include <iostream>
 #include <locale.h>
 #include <string>
 
