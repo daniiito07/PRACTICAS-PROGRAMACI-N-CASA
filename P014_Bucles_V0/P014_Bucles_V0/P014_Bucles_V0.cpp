@@ -8,25 +8,56 @@
 
 int main()
 {
-    setlocale(LC_ALL, "ES_MX.UTF-8");
-    std::cout << "Empezaremos con el contador de 1000 a 0\n";
-    int i = 0;
-    for (i = 1000; i >= 0; i = i--)
+    setlocale(LC_ALL "ES_MX.UTF-8");
+    bool repetir = true;
+   while (repetir){
+    for (int i = 100; i >= 0; i = i--)
     {
-        std::cout << "El contador va en: " << i << std::endl;
+        std::cout << "El contador de 100 a 0 va en : " << i << std::endl;
+        Sleep(50);
     }
-    std::cout << "Ahora sigue el contador de 10 en 10\n";
-
-    for (i = 0; i <= 1000; i = i + 10)
+    std::cout << "EL CONTADOR DE 10x10\n";
+    for (int i = 1; i <= 100; ++i)
     {
-        std::cout << "El contador va en: " << i << std::endl;
+        std::cout << i << " ";
+        Sleep(50);
+        if (i % 10 == 9)
+        {
+            std::cout << std::endl;
+        }
     }
-    std::cout << "Ahora sigue el contador de 0 a 100 lento\n";
+    std::cout << "Conteo de 1000 a 0 con tres tipos de ciclos:\n";
 
-    for (i = 0; i <= 100; i = i + 1)
+    // Ciclo FOR
+    std::cout << "Ciclo FOR:\n";
+    for (int i = 1000; i >= 0; i--)
     {
-        std::cout << "El contador va en: " << i << std::endl;
-        Sleep(300);
+        std::cout << "El contador va: " << i << std::endl;
+        
     }
 
+    // Ciclo DO-WHILE
+    std::cout << "Ciclo DO-WHILE:\n";
+    int j = 1000;
+    do {
+        std::cout << "El contador va: " << j << std::endl;
+        j--;
+        
+    } while (j >= 0);
+
+    // Ciclo WHILE
+    std::cout << "Ciclo WHILE:\n";
+    int k = 1000;
+    while (k >= 0) {
+        std::cout << "El contador va: " << k << std::endl;
+        k--;
+
+    }
+    std::cout << "¿ QUIERES REPETIR LOS CONTADORES ?   (1. SI   0. NO)\n ";
+    std::cin >> repetir;
+
+   }
+    return 0;
+
+  
 }
