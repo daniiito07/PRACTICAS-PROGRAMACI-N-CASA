@@ -3,62 +3,106 @@
 // Realizar un adivina quien muy basico de 5 preguntas
 
 #include <iostream>
+#include <string>
+#include <locale>
 
-int main()
-{
-    setlocale(LC_ALL, "es_MX.UTF-8");
-    char mi_primer_cadenacaracteres[140] = "Hola usuario";
-    bool iniciar;
-    std::cout << "Bienvenido a este pequeño ADIVINA QUIEN, la tematica es deportes, ¿estas listo?:\n";
-    std::cout << "1.- Si     0.- No\n";
-    std::cin >> iniciar;
+int main() {
+    std::setlocale(LC_ALL, "es_MX.UTF-8");
+    std::cout << "Piensa en un deporte (Futbol, Futbol americano, Rugby, Tenis, Waterpolo, Atletismo volleyball)\n";
+    std::cout << "Responde unicamente con s para SI y n para NO\n";
+    std::string respuesta;
+    bool repetir = true;
 
-    if (iniciar == true)
+    while (repetir)
     {
-        std::cout << "Perfecto! tendrás que pensar en respuesta de si y no, empecemos\n";
-    }
-    else
-    {
-        std::cout << "Regresa cuando estes listo :D\n";
-    }
-    std::cout << "La tematica es deportes, piensa en un deporte que involucre balones, pueden ser Basquetbol, Futbol o Futbol AMericano\n";
-    std::cout << "¿Tu deporte se juega en césped?\n";
-    std::cout << "1.- Si      0.-No\n";
-    std::cin >> iniciar;
+        std::cout << "¿Tu deporte se juega con un balon de forma esferica, pelota o estafeta : ";
+        std::cin >> respuesta;
 
-    if (iniciar == true)
-    {
-        std::cout << "¿Tu deporte se juega en equipos ?\n";
-        std::cout << "1.- Si   0.-No\n";
-        std::cin >> iniciar;
-        if (iniciar==true)
-        {
-            std::cout << "¿Tu deporte es muy visto en Estados Unidos?\n";
-            std::cout << "1.- Si    0.-No\n";
-            std::cin >> iniciar;
-            if (iniciar == true)
-            {
-                std::cout << "¿Tu deporte se juega con un balon de forma ovoide?\n";
-                std::cout << "1.- Si     0.- No\n";
-                std::cin >> iniciar;
-                if (iniciar == true)
-                {
-                    std::cout << "Tu deporte es futbol americano\n";
+        if (respuesta == "s") {
+            std::cout << "¿Tu deporte se juega en equipo? : ";
+            std::cin >> respuesta;
+
+            if (respuesta == "s") {
+                std::cout << "¿Tu deporte se juega en una cancha grande? (s/n): ";
+                std::cin >> respuesta;
+
+                if (respuesta == "s") {
+                    std::cout << "¿Tu deporte se juega principalmente con las manos? (s/n): ";
+                    std::cin >> respuesta;
+
+                    if (respuesta == "s") {
+                        std::cout << "¿Tu deporte se juega en el agua? (s/n): ";
+                        std::cin >> respuesta;
+
+                        if (respuesta == "s") {
+                            std::cout << "Tu deporte es waterpolo\n";
+                        }
+                        else {
+                            std::cout << "Tu deporte es basquetbol\n";
+                        }
+                    }
+                    else {
+                        std::cout << "Tu deporte es fútbol\n";
+                    }
                 }
-                else
-                {
-                    std::cout << "¿Tu deporte se juega con un balon de forma esferica?\n";
-                    std::cout << "1.- Si    0.-No\n";
-                    std::cin >> iniciar;
-                    if (iniciar == true)
-                        std::cout << "Tu deporte es Futbol\n";
+                else {
+                    std::cout << "¿Tu deporte incluye una red que divide la cancha? (s/n): ";
+                    std::cin >> respuesta;
+
+                    if (respuesta == "s") {
+                        std::cout << "¿Tu deporte tiene la red al nivel del suelo?\n";
+                        std::cin >> respuesta;
+                        if (respuesta == "s") {
+                            std::cout << "Tu deporte es Tenis\n";
+                        }
+                        else {
+                            std::cout << " Tu deporte es Volleyball\n";
+                        }
+                           
+                    }
+                    
                 }
             }
-        }
-    }
-    else
-    {
-        std::cout << "Tu deporte es basquetbol\n";
-    }
-}
+            else {
+                std::cout << "¿Tu deporte es por equipos pero por turnos? (s/n): ";
+                std::cin >> respuesta;
 
+                if (respuesta == "s") {
+                    std::cout << "¿Tu deporte ocupa bates?\n";
+                    std::cin >> respuesta;
+                    if (respuesta == "s") {
+                        std::cout << "Tu deporte es beisbol\n";
+                    }
+                }  
+  
+            }
+        }
+        else {
+
+            std::cout << "¿Se juega con un balón ovalado? (s/n): ";
+            std::cin >> respuesta;
+
+            if (respuesta == "s") {
+                std::cout << "¿Tu deporte es muy popular en estados unidos?\n";
+                std::cin >> respuesta;
+                if (respuesta == "s") {
+                    std::cout << "Tu deporte es futbol americano\n";
+                }
+                else {
+                    std::cout << "Tu deporte es rugby\n";
+                }
+                
+            }
+            else {
+                std::cout << "El juego que estas pensando no esta en las opciones\n";
+            }
+        }
+
+        std::cout << "¿Quieres jugar de nuevo? 1. Si      0. No ";
+        std::cin >> repetir;
+        system("cls");
+
+    }
+    return 0;
+
+}
